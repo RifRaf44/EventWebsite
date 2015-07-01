@@ -58,7 +58,25 @@ body {
 }
 
 footer {
+    padding-top:5px;
+    border-top:solid #eee 1px;
     margin: 50px 0;
+}
+footer a{
+    color:#b7f2ff;
+}
+
+#success-message{
+    position:absolute;
+    top: 60px;
+    left:50%;
+    width: 600px;
+    margin-left:-300px;
+}
+.highlight-background{
+  width: 100%;
+  background-color: #59B4D9;
+  color: white;
 }
 
 @media(max-width:1200px) {
@@ -157,6 +175,13 @@ footer {
     .headline h2 {
         font-size: 30px;
     }
+#success-message{
+    position:absolute;
+    top: 60px;
+    left:50%;
+    width: 350px;
+    margin-left:-175px;
+}
 }
 
 @media(max-width:375px) {
@@ -177,4 +202,11 @@ footer {
         margin-bottom: 10px;
         margin-left: 0;
     }
+    #success-message{
+    position:absolute;
+    top: 60px;
+    left:50%;
+    width: 300px;
+    margin-left:-150px;
+}
 }
