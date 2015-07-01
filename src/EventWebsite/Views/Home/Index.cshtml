@@ -1,4 +1,4 @@
-﻿@model User
+﻿@model Registration
 @{
     ViewBag.Title = "Home Page";
 }
@@ -40,9 +40,10 @@
 </div>
 
 <hr class="featurette-divider">
+<h2 id="register-now">Register now</h2>
 
 <!-- convince your boss? -->
-@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { Id = "sign"}))
+@using (Html.BeginForm("Register", "Home", FormMethod.Post))
 {
     <div class="form-group">
         <label for="email">Email address</label>
@@ -56,18 +57,18 @@
         <label for="lname">Last Name</label>
         <input type="text" class="form-control" id="lname" placeholder="Last name" name="lastname">
     </div>
-    <div class="checkbox-inline">
+    <div class="checkbox">
         <label>
             @Html.EditorFor(x => x.Session1) Visual Studio 2015 - ASP.NET 5
         </label>
     </div>
-    <div class="checkbox-inline">
+    <div class="checkbox">
         <label>
             @Html.EditorFor(x => x.Session2) DevOps: Creating a deployment pipeline using Visual Studio, TFS & Azure
         </label>
     </div>
     <div>
-    <input type="submit" value="Register!"/>
+    <input type="submit" value="Register!" class="btn btn-primary"/>
     </div>
 
 }

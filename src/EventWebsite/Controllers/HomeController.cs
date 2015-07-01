@@ -22,7 +22,7 @@ namespace EventWebsite.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(User model)
+        public IActionResult Register(Registration model)
         {
             using(var context = new RegistrationContext())
             {
@@ -34,11 +34,12 @@ namespace EventWebsite.Controllers
                 else
                 {
                     ViewBag.Message = "Your registration was succesful. You will be contacted soon.";
-                    context.Users.Add(model);
+                    context.Registrations.Add(model);
                 }
+                context.SaveChanges();
             }
             
-            return View();
+            return View("Index");
         }
     }
 }

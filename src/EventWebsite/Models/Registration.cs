@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EventWebsite.Models
 {
-    public class User
+    public class Registration
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

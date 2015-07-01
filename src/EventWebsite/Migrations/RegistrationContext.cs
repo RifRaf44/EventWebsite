@@ -8,7 +8,19 @@ namespace EventWebsite.Migrations
 {
     public class RegistrationContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        private static bool _created = false;
+
+        public DbSet<Registration> Registrations { get; set; }
+
+        public RegistrationContext()
+        {
+            if (!_created)
+            {
+                Database.EnsureCreated();
+                _created = true;
+            }
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));

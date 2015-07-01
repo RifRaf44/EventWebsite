@@ -28,6 +28,7 @@ namespace EventWebsite
     public class Startup
     {
         public static IConfiguration Configuration { get; set; }
+
         public Startup(IHostingEnvironment env)
         {
             // Setup configuration sources.
