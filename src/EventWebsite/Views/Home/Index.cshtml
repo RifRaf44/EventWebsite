@@ -4,78 +4,12 @@
 }
 @if (ViewBag.Message!=null)
 {
-    <div class="alert alert-success alert-dismissible" role="alert" id="success-message">
+    <div class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <strong>Success!</strong> @ViewBag.Message
     </div>
 }
-<div class="container">
 
-    <hr class="featurette-divider">
+@Html.Partial("_Sessions")
+@Html.Partial("_Registration")
 
-    <!-- First Featurette -->
-    <div class="featurette" id="sessions">
-        <img class="featurette-image img-circle img-responsive pull-right" src="~/images/session1.png">
-        <h2 class="featurette-heading">
-            Visual Studio 2015 - ASP.NET 5
-            @*<span class="text-muted">29-07-2015</span>*@
-        </h2>
-        <p class="lead">
-            A one day introduction to ASP.NET 5 covering the new .NET execution environment (DNX) as well as builing a new ASP.NET 5 application using HTML5, CSS3, LESS, npm, Bower and Grunt.
-        </p>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <!-- Second Featurette -->
-    <div class="featurette">
-        <img class="featurette-image img-circle img-responsive pull-left" src="~/images/session 2.png">
-        <h2 class="featurette-heading">
-            DevOps: Creating a deployment pipeline using Visual Studio, TFS & Azure
-            @*<span class="text-muted">26-8-2015</span>*@
-        </h2>
-        <p class="lead">
-            A one day workshop where we will be learning how to create a well structured deployment pipeline. First off we will see some basic Devops and branching principles, and then we will take this to the field using Visual Studio 2015, TFS 2015, Release Management 2015 and Azure &amp; Application Insights.
-        </p>
-    </div>
-
-    <hr class="featurette-divider">
-
-</div>
-    <div id="register-now" class="highlight-background">
-        <div class="container">
-            <h2>Register now</h2>
-
-            <!-- convince your boss? -->
-            @using (Html.BeginForm("Register", "Home", FormMethod.Post))
-            {
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
-                </div>
-                <div class="form-group">
-                    <label for="fname">First Name</label>
-                    <input type="text" class="form-control" id="fname" placeholder="First name" name="firstname">
-                </div>
-                <div class="form-group">
-                    <label for="lname">Last Name</label>
-                    <input type="text" class="form-control" id="lname" placeholder="Last name" name="lastname">
-                </div>
-                <div class="checkbox">
-                    <label>
-                        @Html.EditorFor(x => x.Session1) Visual Studio 2015 - ASP.NET 5
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        @Html.EditorFor(x => x.Session2) DevOps: Creating a deployment pipeline using Visual Studio, TFS & Azure
-                    </label>
-                </div>
-                <div>
-                    <input type="submit" value="Register!" class="btn btn-primary" />
-                </div>
-
-
-            }
-            </div>
-            </div>

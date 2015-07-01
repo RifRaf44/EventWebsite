@@ -15,31 +15,38 @@ namespace EventWebsite.Controllers
             return View();
         }
 
+        public IActionResult Success()
+        {
+            return View();
+        }
 
         public IActionResult Error()
         {
             return View("~/Views/Shared/Error.cshtml");
         }
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View("Index");
+        }
+
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(Registration model)
         {
-            using(var context = new RegistrationContext())
+            if (!ModelState.IsValid)
             {
-                if(!model.Session1 && !model.Session2)
-                {
-                    ViewBag.Message = "Please fill in at least one session";
-                    return View(model);
-                }
-                else
-                {
-                    ViewBag.Message = "Your registration was succesful. You will be contacted soon.";
-                    context.Registrations.Add(model);
-                }
+                return View("Index", model);
+            }
+
+            using (var context = new RegistrationContext())
+            {
+                context.Registrations.Add(model);
                 context.SaveChanges();
             }
-            
-            return View("Index");
+
+            return RedirectToAction("Success");
         }
     }
 }

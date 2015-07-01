@@ -18,10 +18,10 @@ namespace EventWebsite.Migrations
                 name: "Registration",
                 columns: table => new
                 {
-                    Email = table.Column(type: "nvarchar(max)", nullable: true),
-                    FirstName = table.Column(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column(type: "nvarchar(max)", nullable: false),
                     Id = table.Column(type: "int", nullable: false),
-                    LastName = table.Column(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column(type: "nvarchar(max)", nullable: false),
                     Session1 = table.Column(type: "bit", nullable: false),
                     Session2 = table.Column(type: "bit", nullable: false)
                 },
