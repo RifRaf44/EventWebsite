@@ -27,6 +27,7 @@ namespace EventWebsite
 {
     public class Startup
     {
+        public static IConfiguration Configuration { get; set; }
         public Startup(IHostingEnvironment env)
         {
             // Setup configuration sources.
@@ -44,8 +45,6 @@ namespace EventWebsite
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; set; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -55,8 +54,7 @@ namespace EventWebsite
             // Add EF services to the services container.
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<RegistrationContext>(options =>
-                    options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+                .AddDbContext<RegistrationContext>();
 
 
             // Add MVC services to the services container.
