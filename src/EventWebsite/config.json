@@ -4,7 +4,7 @@
   },
   "Data": {
     "DefaultConnection": {
-      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-EventWebsite-dbe15f1e-50aa-460e-8a47-240be246e244;Trusted_Connection=True;MultipleActiveResultSets=true"
+      "ConnectionString": "Server=(localdb)\\v11.0;Database=EventRegistrationDb;Trusted_Connection=True;MultipleActiveResultSets=true"
     }
   }
 }
