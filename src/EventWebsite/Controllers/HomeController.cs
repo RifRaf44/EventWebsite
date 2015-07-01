@@ -13,12 +13,7 @@ namespace EventWebsite.Controllers
         public IActionResult Index()
         {
             return View();
-        }
-
-        public IActionResult Success()
-        {
-            return View();
-        }
+        }        
 
         public IActionResult Error()
         {
@@ -29,7 +24,6 @@ namespace EventWebsite.Controllers
         {
             return View("Index");
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -46,7 +40,9 @@ namespace EventWebsite.Controllers
                 context.SaveChanges();
             }
 
-            return RedirectToAction("Success");
+            ViewBag.Message = "Your registration was succesful. You will be contacted soon.";
+            ModelState.Clear();
+            return View("Index");
         }
     }
 }
