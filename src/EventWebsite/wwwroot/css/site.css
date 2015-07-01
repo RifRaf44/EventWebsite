@@ -57,13 +57,21 @@ body {
     font-size: 50px;
 }
 
-footer {
-    padding-top:5px;
-    border-top:solid #eee 1px;
+footer { 
     margin: 50px 0;
 }
 footer a{
     color:#b7f2ff;
+}
+
+hr.footer-divider{
+    margin:0;
+    padding:0;
+    border:1px solid #fafafa;
+}
+
+#register-now{
+    padding-bottom:15px;
 }
 
 #success-message{
