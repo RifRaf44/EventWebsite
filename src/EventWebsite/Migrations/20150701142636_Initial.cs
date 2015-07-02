@@ -9,19 +9,15 @@ namespace EventWebsite.Migrations
     {
         public override void Up(MigrationBuilder migration)
         {
-            migration.CreateSequence(
-                name: "DefaultSequence",
-                type: "bigint",
-                startWith: 1L,
-                incrementBy: 10);
             migration.CreateTable(
                 name: "Registration",
                 columns: table => new
                 {
-                    Email = table.Column(type: "nvarchar(max)", nullable: false),
-                    FirstName = table.Column(type: "nvarchar(max)", nullable: false),
-                    Id = table.Column(type: "int", nullable: false),
-                    LastName = table.Column(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGeneration", "Identity"),
+                    LastName = table.Column(type: "nvarchar(max)", nullable: true),
                     Session1 = table.Column(type: "bit", nullable: false),
                     Session2 = table.Column(type: "bit", nullable: false)
                 },
@@ -33,7 +29,6 @@ namespace EventWebsite.Migrations
         
         public override void Down(MigrationBuilder migration)
         {
-            migration.DropSequence("DefaultSequence");
             migration.DropTable("Registration");
         }
     }

@@ -3,40 +3,34 @@
 <div id="register-now" class="highlight-background">
     <div class="container">
         <h2>Register now!</h2>
-
         <!-- convince your boss? -->
         <form asp-controller="Home" asp-action="Register" asp-anti-forgery>
             @if (!ViewData.ModelState.IsValid)
             {
-                <div class="alert alert-danger" role="alert">
-                    @Html.ValidationSummary()
+                <div class="alert alert-danger" role="alert" asp-validation-summary="ValidationSummary.All">
                 </div>
             }
-
             <div class="form-group">
-                <label for="email">Email address</label>
-                @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @placeholder = "Email", @class = "form-control", @required = true } })
+                <label asp-for="Email">Email address</label>
+                <input class="form-control" asp-for="Email" placeholder="Email" required="required" />
             </div>
             <div class="form-group">
-                <label for="fname">First Name</label>
-                @Html.EditorFor(x => x.FirstName, new { htmlAttributes = new { @placeholder = "First Name", @class = "form-control", @required = true } })
-
+                <label asp-for="FirstName">First Name</label>
+                <input class="form-control" asp-for="FirstName" placeholder="First Name" required="required" />
             </div>
             <div class="form-group">
-                <label for="lname">Last Name</label>
-                @Html.EditorFor(x => x.LastName, new { htmlAttributes = new { @placeholder = "Last Name", @class = "form-control", @required = true } })
+                <label asp-for="LastName">Last Name</label>
+                <input class="form-control" asp-for="LastName" placeholder="Last Name" required="required" />
             </div>
             <div class="form-group">
                 <label>Sessions</label>
                 <div class="checkbox">
-                    <label>
-                        @Html.EditorFor(x => x.Session1) Visual Studio 2015 - ASP.NET 5
-                    </label>
+                    <input asp-for="Session1" />
+                    <label asp-for="Session2">Visual Studio 2015 - ASP.NET 5</label>
                 </div>
                 <div class="checkbox">
-                    <label>
-                        @Html.EditorFor(x => x.Session2) DevOps: Creating a deployment pipeline using Visual Studio, TFS & Azure
-                    </label>
+                    <input asp-for="Session2" />
+                    <label asp-for="Session2">DevOps: Creating a deployment pipeline using Visual Studio, TFS & Azure</label>
                 </div>
             </div>
             <div>
@@ -45,4 +39,9 @@
         </form>
     </div>
 </div>
-
+@if (!ViewData.ModelState.IsValid)
+{
+<script>
+    location.hash = "#register-now";
+</script>
+}
