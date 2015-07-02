@@ -15,7 +15,7 @@ namespace EventWebsite.Migrations
             get
             {
                 var builder = new BasicModelBuilder()
-                    .Annotation("SqlServer:ValueGeneration", "Sequence");
+                    .Annotation("SqlServer:ValueGeneration", "Identity");
                 
                 builder.Entity("EventWebsite.Models.Registration", b =>
                     {
@@ -26,7 +26,7 @@ namespace EventWebsite.Migrations
                         b.Property<int>("Id")
                             .GenerateValueOnAdd()
                             .Annotation("OriginalValueIndex", 2)
-                            .Annotation("SqlServer:ValueGeneration", "Default");
+                            .Annotation("SqlServer:ValueGeneration", "Identity");
                         b.Property<string>("LastName")
                             .Annotation("OriginalValueIndex", 3);
                         b.Property<bool>("Session1")
