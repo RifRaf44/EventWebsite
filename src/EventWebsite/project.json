@@ -1,4 +1,4 @@
-﻿{
+{
     "webroot": "wwwroot",
     "userSecretsId": "aspnet5-EventWebsite-dbe15f1e-50aa-460e-8a47-240be246e244",
     "version": "1.0.0-*",
@@ -10,11 +10,6 @@
         "EntityFramework.Relational": "7.0.0-beta4",
         "Microsoft.AspNet.Mvc": "6.0.0-beta4",
         "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta4",
-        "Microsoft.AspNet.Authentication.Cookies": "1.0.0-beta4",
-        "Microsoft.AspNet.Authentication.Facebook": "1.0.0-beta4",
-        "Microsoft.AspNet.Authentication.Google": "1.0.0-beta4",
-        "Microsoft.AspNet.Authentication.MicrosoftAccount": "1.0.0-beta4",
-        "Microsoft.AspNet.Authentication.Twitter": "1.0.0-beta4",
         "Microsoft.AspNet.Diagnostics": "1.0.0-beta4",
         "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta4",
         "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-beta4",
