@@ -56,7 +56,7 @@ namespace EventWebsite
 
             // Add MVC services to the services container.
             services.AddMvc();
-
+            
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
@@ -83,20 +83,10 @@ namespace EventWebsite
                 // sends the request to the following path or controller action.
                 app.UseErrorHandler("/Home/Error");
             }
-
+            
             // Add static files to the request pipeline.
             app.UseStaticFiles();
-
-            // Add cookie-based authentication to the request pipeline.
-            app.UseIdentity();
-
-            // Add authentication middleware to the request pipeline. You can configure options such as Id and Secret in the ConfigureServices method.
-            // For more information see http://go.microsoft.com/fwlink/?LinkID=532715
-            // app.UseFacebookAuthentication();
-            // app.UseGoogleAuthentication();
-            // app.UseMicrosoftAccountAuthentication();
-            // app.UseTwitterAuthentication();
-
+            
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>
             {
@@ -105,8 +95,7 @@ namespace EventWebsite
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" });
 
-                // Uncomment the following line to add a route for porting Web API 2 controllers.
-                // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
+                routes.MapRoute("ApiRoute", "{controller}/{id?}");
             });
         }
     }
