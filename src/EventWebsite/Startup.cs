@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
+﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Diagnostics.Entity;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Routing;
-using Microsoft.Data.Entity;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
-using Microsoft.Framework.Logging.Console;
-using Microsoft.Framework.Runtime;
-using EventWebsite.Models;
+using EventWebsite.Infrastructure;
 using EventWebsite.Migrations;
 
 namespace EventWebsite
@@ -56,7 +45,7 @@ namespace EventWebsite
 
             // Add MVC services to the services container.
             services.AddMvc();
-            
+
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
@@ -83,9 +72,10 @@ namespace EventWebsite
                 // sends the request to the following path or controller action.
                 app.UseErrorHandler("/Home/Error");
             }
-            
-            // Add static files to the request pipeline.
-            app.UseStaticFiles();
+
+            // Redirect all requests from the top level domain to www.* (SEO friendly)
+            app.UseUrlRewriter(ctx => ctx.Request.Host.Value.StartsWith("xperience-days.be", System.StringComparison.OrdinalIgnoreCase),
+                ctx => "http://www.xperience-days.be");
             
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>
@@ -97,6 +87,9 @@ namespace EventWebsite
 
                 routes.MapRoute("ApiRoute", "{controller}/{id?}");
             });
+
+            // Add static files to the request pipeline.
+            app.UseStaticFiles();
         }
     }
 }
